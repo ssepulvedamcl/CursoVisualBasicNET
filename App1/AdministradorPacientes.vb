@@ -13,8 +13,15 @@
             _pacientes.Add(Paciente.ID, Paciente)
             RaiseEvent PacienteCreado(Paciente)
         Catch ex As Exception
-            Console.WriteLine("Paciente ya existe " & Paciente.ID)
+            Throw New PacienteYaExisteException("Paciente ya existe!", Paciente)
         End Try
+
+        'Try
+        '   _pacientes.Add(Paciente.ID, Paciente)
+        '   RaiseEvent PacienteCreado(Paciente)
+        'Catch ex As Exception
+        '   Console.WriteLine("Paciente ya existe " & Paciente.ID)
+        'End Try
 
         'If Not (_pacientes.ContainsKey(Paciente.ID)) Then
         '   _pacientes.Add(Paciente.ID, Paciente)

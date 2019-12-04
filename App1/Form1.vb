@@ -8,8 +8,12 @@ Public Class Form1
         Dim Paciente As New Paciente()
         Paciente.ID = TxtId.Text
         Paciente.Nombre = TxtNombre.Text
+        Try
+            AdministradorPacientes.AgregarPaciente(Paciente)
+        Catch ex As PacienteYaExisteException
+            MessageBox.Show("El paciente ya existe: " + ex.Paciente.Nombre)
+        End Try
 
-        AdministradorPacientes.AgregarPaciente(Paciente)
 
 
     End Sub

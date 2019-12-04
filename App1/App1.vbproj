@@ -99,6 +99,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Paciente.vb" />
+    <Compile Include="PacienteYaExisteException.vb" />
     <Compile Include="Persona.vb" />
   </ItemGroup>
   <ItemGroup>
