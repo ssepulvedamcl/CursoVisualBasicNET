@@ -9,10 +9,17 @@
     End Property
 
     Public Sub AgregarPaciente(ByRef Paciente As Paciente)
-        If Not (_pacientes.ContainsKey(Paciente.ID)) Then
+        Try
             _pacientes.Add(Paciente.ID, Paciente)
             RaiseEvent PacienteCreado(Paciente)
-        End If
+        Catch ex As Exception
+            Console.WriteLine("Paciente ya existe " & Paciente.ID)
+        End Try
+
+        'If Not (_pacientes.ContainsKey(Paciente.ID)) Then
+        '   _pacientes.Add(Paciente.ID, Paciente)
+        '   RaiseEvent PacienteCreado(Paciente)
+        'End If
     End Sub
 
     Public Sub EliminarPaciente(ID As String)
